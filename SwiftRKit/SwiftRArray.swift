@@ -30,3 +30,17 @@ extension SwiftRArray: Equatable {
         return left.array == right.array
     }
 }
+
+extension SwiftRArray: ExpressibleByArrayLiteral {
+    typealias Element = SwiftRValue
+    
+    init(arrayLiteral elements: SwiftRValue...) {
+        self.init(elements)
+    }
+}
+
+extension SwiftRArray {
+    subscript(index: Int) -> SwiftRValue {
+        return self.array[index]
+    }
+}
